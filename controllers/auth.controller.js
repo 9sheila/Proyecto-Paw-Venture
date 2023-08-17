@@ -7,21 +7,12 @@ module.exports.register = (req, res, next) => {
 };
 
 module.exports.doRegister = (req, res, next) => {
-  const { email, password, repeatPassword } = req.body
-
-  console.log(req.body)
+  const { email, password } = req.body
 
   const renderWithErrors = (errors) => {
     res.render('auth/register', {
       user: req.body,
       errors
-    })
-  }
-
-  if (password !== repeatPassword) {
-    return renderWithErrors({
-      repeatPassword: 'Passwords must match',
-      password: 'Passwords must match',
     })
   }
 
@@ -39,14 +30,16 @@ module.exports.doRegister = (req, res, next) => {
 
         return User.create(userData)
           .then(() => {
-            res.redirect('/login')
+            res.redirect('/inscription')
           })
       }
     })
     .catch(err => {
       if (err instanceof mongoose.Error.ValidationError) {
+        console.log(err)
         renderWithErrors(err.errors);
       } else {
+        console.log(err)
         next(err)
       }
     })
@@ -59,17 +52,22 @@ module.exports.login = (req, res, next) => {
 const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
   const passportController = passport.authenticate(strategy, (error, user, validations) => {
     if (error) {
+      console.log("entro error")
       next(error)
     } else if (!user) {
+      console.log("entro no hay usuario")
       res.render('auth/login', {
         user: req.body,
         errors: validations
       })
     } else {
-      req.login(user, error => {
+     
+      req.login(user, (error) => {
         if (error) {
+          console.log("entro y hago sesion",error)
           next(error);
         } else {
+          console.log("entro y redirijo a profile", user)
           res.redirect('/profile')
         }
       });
@@ -80,6 +78,7 @@ const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
 }
 
 module.exports.doLogin = (req, res, next) => {
+ 
   doLoginStrategy(req, res, next);
 }
 

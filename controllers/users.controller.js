@@ -2,21 +2,11 @@ const User = require("../models/user.model");
 const createError = require('http-errors');
 
 module.exports.profile = (req, res, next) => {
-  res.render('user/profile', { user: req.user });
+  res.render('user/profile');
 }
-
-module.exports.getUserProfile = (req, res, next) => {
-    User.findById(req.params.id)
-      // .populate('artworks')
-      .then(user => {
-        if (user) {
-          res.render('user/profile', { user });
-        } else {
-          next(createError(404, 'User not found'))
-        }
-      })
-      .catch(next)
-  }
+module.exports.inscription = (req, res, next) => {
+  res.render('user/inscription')
+}
 
   // module.exports.checUserRole = (req, res, next) => {
   //   const roleToCheck = req.params.role;

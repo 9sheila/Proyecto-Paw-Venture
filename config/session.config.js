@@ -1,24 +1,20 @@
 const expressSession = require('express-session');
-const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
-const { session } = require('passport');
+const mongoose = require('mongoose');
 
-const sessionMaxAgeDays = Number(process.env.SESSION_MAX_AGE_DAYS || 2);
+const sessionMaxAge = Number(process.env.SESSION_MAX_AGE || 7);
 
 module.exports = expressSession({
-  secret: process.env.SESSION_SECRET || 'secret',
+  secret: process.env.SESSION_SECRET || 'super secret (change it)',
   resave: false,
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
     secure: process.env.SESSION_SECURE === 'true',
-    maxAge: 24 * 3600 * 1000 * sessionMaxAgeDays,
+    maxAge: 24 * 3600 * 1000 * sessionMaxAge,
   },
   store: MongoStore.create({
     mongoUrl: mongoose.connection._connectionString,
-    ttl: 24 * 3600 * sessionMaxAgeDays,
-  })
+    ttl: 24 * 3600 * sessionMaxAge,
+  }),
 });
-
-
-module.exports = session;

@@ -13,8 +13,8 @@ const app = express();
 
 require('./config/db.config');
 require('./config/hbs.config');
- require('./config/passport.config');
-// const session = require('./config/session.config');
+require('./config/passport.config');
+ const session = require('./config/session.config');
 
 /* Views */
 
@@ -28,9 +28,9 @@ app.use(express.json({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 
- // app.use(session);
- app.use(passport.initialize());
- app.use(passport.session());
+app.use(session);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;

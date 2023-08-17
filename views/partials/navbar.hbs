@@ -1,8 +1,22 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="https://images.vexels.com/media/users/3/202268/isolated/preview/81ec46f768b35a2a23d7a30f7b1d30bf-plano-de-huella-de-perro-rojo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      <img
+        src="https://images.vexels.com/media/users/3/202268/isolated/preview/81ec46f768b35a2a23d7a30f7b1d30bf-plano-de-huella-de-perro-rojo.png"
+        alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
       Paw Venture
     </a>
+    <ul class="nav justify-content-end">
+      {{#if currentUser }}
+      <li class="nav-item"><a class="nav-link {{active path=path match='/profile'}}" aria-current="page"
+          href="/profile">{{ currentUser.email }}</a></li>
+      <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
+      <img src="{{currentUser.avatar}}" />
+      {{else}}
+      <li class="nav-item"><a class="nav-link {{active path=path match='/'}}" href="/">Home</a></li>
+      <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page" href="/register">Register</a></li>
+      <li class="nav-item"><a class="nav-link {{active path=path match='/login'}}" href="/login">Login</a></li>
+      {{/if}}
+    </ul>
   </div>
 </nav>
