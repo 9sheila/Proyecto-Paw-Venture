@@ -1,6 +1,10 @@
 <h1>Sign in</h1>
 
 <form action="/register" method="POST">
+<div class="input-group mb-2">
+        <input type="text" name="name" class="custom-form-control form-control border-0 py-2 ps-4 {{#if errors.name}}is-invalid{{/if}}" placeholder="Name" aria-label="User name" value="{{ user.name }}">
+        {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
+      </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
     <input
@@ -20,6 +24,11 @@
       name="password" type="password" id="password" required
     >
   </div>
+  <div class="input-group mb-3">
+        <input type="file" name="avatar"
+          class="custom-form-control form-control border-0 py-2 ps-4 {{#if errors.password}}is-invalid{{/if}}"
+          >
+      </div>
   <div class="flex">
     <button class="btn btn-primary" type="submit">Sign in</button>
     <a href="/login/google" class="btn btn-danger">Sign in with Google</a>

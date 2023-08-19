@@ -1,0 +1,12 @@
+{
+    "Owner":{
+    "text": "Owner",
+    "image": "/img/roll/owner.jpg"
+},
+
+    "Walker": {
+     "text" : "Walker",
+     "image": "/img/roll/walker.jpg"
+    }
+}
+

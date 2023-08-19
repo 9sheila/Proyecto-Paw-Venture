@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const { REQUIRED_FIELD, INVALID_FIELD } = require('../errors');
+const roll = require('../data/roll.json');
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -9,9 +10,10 @@ const SALT_ROUNDS = 10;
 
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
-      required: [true, REQUIRED_FIELD]
+      required: 'name is required',
+      minLength: [3, 'name needs at least 3 chars'],
     },
     email: {
       type: String,
@@ -31,10 +33,16 @@ const userSchema = new mongoose.Schema(
     googleID: {
       type: String
     },
-    roll: {
-      type: String
-    }
+    roll: { 
+    type: [
+      {
+        type: String,
+        enum: Object.keys(roll),
+      },
+    ],
+    default: [],
   },
+},
   {
     timestamps: true,
   }
