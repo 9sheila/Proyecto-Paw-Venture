@@ -28,7 +28,7 @@ const dogSchema = new Schema(
       type: mongoose.Types.ObjectId,
       ref: 'User',
       required: true,
-    },
+    }, 
   },
   {
     timestamps: true,

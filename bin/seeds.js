@@ -15,7 +15,7 @@ mongoose.connection.once('open', () => {
     .then(() => console.log(`- Database dropped`))
     .then(() => {
         User.create({})
-            .then(userCreated {})
+            .then(userCreated)
     })
     .catch((error) => console.error(error));
 });
