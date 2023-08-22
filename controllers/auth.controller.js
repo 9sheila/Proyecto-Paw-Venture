@@ -30,7 +30,7 @@ module.exports.doRegister = (req, res, next) => {
 
         return User.create(userData)
           .then(() => {
-            res.redirect('/inscription')
+            res.redirect('/profile')
           })
       }
     })
@@ -55,7 +55,6 @@ const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
       console.log("entro error")
       next(error)
     } else if (!user) {
-      console.log("entro no hay usuario")
       res.render('auth/login', {
         user: req.body,
         errors: validations
@@ -67,12 +66,15 @@ const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
           console.log("entro y hago sesion",error)
           next(error);
         } else {
-          console.log("entro y redirijo a profile", user)
+          if (user.role === 'owner') {
+            res.redirect('/addDog')
+          } else { 
           res.redirect('/profile')
         }
+      }
       });
     }
-  })
+  });
 
   passportController(req, res, next);
 }

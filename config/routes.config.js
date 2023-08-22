@@ -2,6 +2,7 @@ const router = require('express').Router();
 const miscController = require('../controllers/misc.controller');
 const authController = require('../controllers/auth.controller');
 const usersController = require('../controllers/users.controller');
+const dogController = require('../controllers/dog.controller');
 
 const authMiddleware = require('../middlewares/auth.middleware');
 const upload = require('./multer.config');
@@ -27,9 +28,11 @@ router.get('/login/google', authMiddleware.isUnauthenticated, authController.log
 router.get('/authenticate/google/cb', authMiddleware.isUnauthenticated, authController.doLoginGoogle);
 
 /* User */
-
 router.get('/profile', authMiddleware.isAuthenticated, usersController.profile);
-router.get('/inscription', authMiddleware.isUnauthenticated, usersController.inscription);
+
+/* Dog */
+router.get('/addDog', authMiddleware.isAuthenticated, dogController.create);
+router.post('/addDog', authMiddleware.isAuthenticated, upload("single"), dogController.doCreate);
 
 
 

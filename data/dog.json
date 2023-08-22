@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Boss",
+        "image": "https://img.freepik.com/foto-gratis/vista-superior-surtido-mariscos-deliciosos_23-2148926773.jpg?w=2000&t=st=1691257997~exp=1691258597~hmac=86a2fa1d8552048a09edda167ad117034ec99f1e9853750be6b7ee65f4c72a48",
+        "race": "Mastín",
+        "age": "9",
+        "owner": "Yago",
+        "Special Treatments": "none"
+    },
+    {
+        "name": "Max",
+        "race": "Golden Retriever",
+        "age": 3,
+        "owner": "John Smith",
+        "Special Treatments": [
+            "Vacunación anual",
+            "Baños regulares",
+            "Entrenamiento de obediencia"
+        ]
+    },
+    {
+        "name": "Luna",
+        "race": "Labrador",
+        "age": 2,
+        "owner": "Maria Rodriguez",
+        "Special Treatments": [
+            "Esterilización",
+            "Control de pulgas y garrapatas",
+            "Dieta especial"
+        ]
+    },
+    {
+        "name": "Rocky",
+        "race": "Bulldog",
+        "age": 5,
+        "owner": "Robert Johnson",
+        "Special Treatments": [
+            "Cirugía de cadera",
+            "Fisioterapia",
+            "Suplementos articulares"
+        ]
+    }
+]

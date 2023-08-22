@@ -1,0 +1,29 @@
+<form action="/addDog" method="POST">
+  <h1>{{currentUser.name}}</h1>
+  <h2>{{currentUser.role}}</h2>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Name</span>
+    <input type="text" class="form-control" placeholder="Doggie's name" aria-label="Name" name="name" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Race</span>
+    <input type="text" class="form-control" placeholder="Doggie's race" aria-label="Race" name="race" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Age</span>
+    <input type="number" class="form-control" placeholder="Doggie's Age" aria-label="Age" name="age" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <input type="file" name="image" 
+      class="custom-form-control form-control border-0 py-2 ps-4 {{#if errors.password}}is-invalid{{/if}}">
+  </div>
+  <div class="input-group">
+    <span name="specialTreatments" class="input-group-text" >Special Treatments</span>
+    <textarea class="form-control" aria-label="Special Treatments"></textarea>
+  </div>
+  <div class="flex">
+    <button class="btn btn-primary" type="submit">submit</button>
+  </div>
+</form>

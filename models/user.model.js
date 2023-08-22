@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const { REQUIRED_FIELD, INVALID_FIELD } = require('../errors');
-const roll = require('../data/roll.json');
+  
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -33,20 +33,23 @@ const userSchema = new mongoose.Schema(
     googleID: {
       type: String
     },
-    roll: { 
-    type: [
-      {
+    role: { 
         type: String,
-        enum: Object.keys(roll),
+        enum: ["owner", "walker"],
       },
-    ],
-    default: [],
-  },
 },
   {
     timestamps: true,
+    virtuals: true,
   }
 );
+
+userSchema.virtual('dogs', {
+  ref: 'Dog',
+  foreignField: 'owner',
+  localField: '_id',
+  justOne: false
+});
 
 userSchema.pre('save', function(next) {
     if (this.isModified('password')) {

@@ -9,9 +9,9 @@
     <ul class="nav justify-content-end">
       {{#if currentUser }}
       <li class="nav-item"><a class="nav-link {{active path=path match='/profile'}}" aria-current="page"
-          href="/profile">{{ currentUser.email }}</a></li>
+          href="/profile">{{ currentUser.name }}</a></li>
       <li class="nav-item"><a class="nav-link" aria-current="page" href="/logout">Logout</a></li>
-      <img src="{{currentUser.avatar}}" />
+      {{!-- <img class= "nav-img"  src="{{currentUser.avatar}}" /> --}}
       {{else}}
       <li class="nav-item"><a class="nav-link {{active path=path match='/'}}" href="/">Home</a></li>
       <li class="nav-item"><a class="nav-link {{active path=path match='/register'}}" aria-current="page" href="/register">Register</a></li>

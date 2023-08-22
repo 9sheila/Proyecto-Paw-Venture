@@ -1,0 +1,20 @@
+<h1 class="mt-4">Dogs</h1>
+
+<div class="row">
+  {{#each currentUser.dogs}}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      
+      <div class="card-image">
+        <img src={{image}} class="card-img-top" alt={{name}}>
+      </div>
+      <p class="card-title">{{dog.name}}</p>
+      <p class="card-title">{{dog.race}}</p>
+      <h6 class="card-title"> Age: {{dog.age}} years old </h6>
+      <a href="/profile/{{this._id}}" class="btn btn-primary">Details</a>
+      <p class="footer">Owner: {{currentUser.name}} <span class="by-name"></span> </p>
+      
+    </div>
+  </div>
+  {{/each}}
+</div>

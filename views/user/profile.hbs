@@ -1,2 +1,22 @@
-<h1>perfil</h1>
-<h2>email:{{ currentUser.email }}</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+</head>
+
+<body>
+    <div>
+        {{#if isOwner}}
+            {{#each currentUser.dogs}}
+                {{>dogCard dog=this}}
+            {{/each}}
+        {{else}}
+            {{>dog}}
+        {{/if}}
+    </div>
+</body>
+
+</html>
