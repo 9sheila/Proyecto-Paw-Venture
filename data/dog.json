@@ -1,7 +1,7 @@
 [
     {
         "name": "Boss",
-        "image": "https://img.freepik.com/foto-gratis/vista-superior-surtido-mariscos-deliciosos_23-2148926773.jpg?w=2000&t=st=1691257997~exp=1691258597~hmac=86a2fa1d8552048a09edda167ad117034ec99f1e9853750be6b7ee65f4c72a48",
+        "image": "https://static.vecteezy.com/system/resources/previews/006/099/824/original/dog-kawaii-face-free-vector.jpg",
         "race": "Mastín",
         "age": "9",
         "owner": "Yago",
@@ -9,6 +9,7 @@
     },
     {
         "name": "Max",
+        "image": "https://static.vecteezy.com/system/resources/previews/006/099/824/original/dog-kawaii-face-free-vector.jpg",
         "race": "Golden Retriever",
         "age": 3,
         "owner": "John Smith",
@@ -20,6 +21,7 @@
     },
     {
         "name": "Luna",
+        "image": "https://static.vecteezy.com/system/resources/previews/006/099/824/original/dog-kawaii-face-free-vector.jpg",
         "race": "Labrador",
         "age": 2,
         "owner": "Maria Rodriguez",
@@ -31,6 +33,7 @@
     },
     {
         "name": "Rocky",
+        "image": "https://static.vecteezy.com/system/resources/previews/006/099/824/original/dog-kawaii-face-free-vector.jpg",
         "race": "Bulldog",
         "age": 5,
         "owner": "Robert Johnson",

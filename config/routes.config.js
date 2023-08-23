@@ -15,7 +15,7 @@ router.get('/', miscController.getHome);
 /* Auth */
 
 router.get('/register', authMiddleware.isUnauthenticated, authController.register);
-router.post('/register', authMiddleware.isUnauthenticated, authController.doRegister);
+router.post('/register', authMiddleware.isUnauthenticated,upload.array('avatar'), authController.doRegister);
 
 // router.get(/);
 
@@ -32,7 +32,7 @@ router.get('/profile', authMiddleware.isAuthenticated, usersController.profile);
 
 /* Dog */
 router.get('/addDog', authMiddleware.isAuthenticated, dogController.create);
-router.post('/addDog', authMiddleware.isAuthenticated, upload("single"), dogController.doCreate);
+router.post('/addDog', authMiddleware.isAuthenticated, upload.array('avatar'), dogController.doCreate);
 
 
 
