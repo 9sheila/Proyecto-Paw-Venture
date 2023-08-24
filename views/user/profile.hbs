@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil</title>
-</head>
-
-
-
-<body>
-    <div><img width="80" class="rounded" src="{{currentUser.avatar}}" alt="profile pic"> </div>
-    <h1>{{currentUser.name}}</h1>
-    <div>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <section>
+                <div><img width="80" class="rounded" src="{{currentUser.avatar}}" alt="profile pic"> </div>
+                <h1>{{currentUser.name}}</h1>
+        </div>
+       
+    </div>
+    </section>
+    </div>
+    </div>
+    <div class="container">
         {{#if isOwner}}
-            {{#each currentUser.dogs}}
+        <a class="p-0"><a class="link {{active path=path match='/../dogs/create'}}" href="/../dogs/create">add dog</a>
+        <div class="d-flex w-100 flex-row justify-content-center">
+        {{#each currentUser.dogs}}
                 {{>dogCard dog=this}}
-            {{/each}}
+        {{/each}}
+        </div>
+       
         {{else}}
         <h2>{{currentUser.role}}</h2>
-            {{>list}}
+        <div class="d-flex w-100 flex-row justify-content-between">
+        {{#each dogs}}
+                 {{>dogCard dog=this}}
+        {{/each}}
+        </div>
         {{/if}}
-    </div>
-</body>
 
-</html>
+    </div>

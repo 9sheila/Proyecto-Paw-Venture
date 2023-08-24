@@ -13,7 +13,7 @@ const dogSchema = new Schema(
         type: String,
         required: true,
     },
-    image: {
+    avatar: {
         type: String,
         default: 'https://static.vecteezy.com/system/resources/previews/006/099/824/original/dog-kawaii-face-free-vector.jpg',
       },

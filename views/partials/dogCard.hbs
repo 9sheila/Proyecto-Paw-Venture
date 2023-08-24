@@ -1,9 +1,13 @@
-<div class="card h-100">
-  <img src="{{dog.image}}" width="80" class="card-img-top rounded" alt="{{dog.name}}">
-  <div class="card-body">
-    <h5 class="card-title">{{dog.name}}</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">{{dog.race}}</h6>
-     <h6 class="card-subtitle mb-2 text-body-secondary">{{dog.age}} years</h6>
-    {{#if dog.owner.username}}<a class="card-link" href="/profile">{{dog.owner.username}}</a>{{/if}}
-  </div>
-</div>
+{{!-- </div>
+<li><a class="link {{active path=path match='/addDog'}}" href="/addDog">add dog</a></li>
+</div> --}}
+
+    <div class="card m-5" style="max-width:20%;">
+      <img src="{{dog.avatar}}" width="50" class="card-img-top" alt="{{dog.name}}">
+      <div class="card-body">
+        <h5 class="card-title">{{dog.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{dog.race}}</h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{dog.age}} years</h6>
+        {{!-- {{#if dog.owner.username}}<a class="card-link" href="/profile">{{dog.owner.username}}</a>{{/if}} --}}
+      </div>
+    </div>

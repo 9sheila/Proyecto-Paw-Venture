@@ -23,6 +23,7 @@ module.exports.doRegister = (req, res, next) => {
       if (user) {
         renderWithErrors({ email: 'Email already in use' });
       } else {
+        console.log(req.file)
         const userData = {
           ...req.body,
           avatar: req.file ? req.file.path : undefined
@@ -66,8 +67,8 @@ const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
           console.log("entro y hago sesion",error)
           next(error);
         } else {
-          if (user.role === 'owner') {
-            res.redirect('/addDog')
+          if (user.role === 'owner' && !user.dogs ) {
+            res.redirect('/dog/create')
           } else { 
           res.redirect('/profile')
         }
