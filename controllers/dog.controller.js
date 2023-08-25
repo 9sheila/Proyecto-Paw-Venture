@@ -2,7 +2,8 @@ const Dog = require("../models/dog.model");
 const createError = require('http-errors');
 
 module.exports.create = (req, res, next) => {
-    res.render('dog/create')
+    res.render('dog/create',{ 
+       createAction: "/dogs/create" });
 }  
 
 module.exports.doCreate = (req, res, next) => {
@@ -24,32 +25,21 @@ module.exports.doCreate = (req, res, next) => {
 module.exports.editFormGet = (req, res, next) => {
     const { id } = req.params;
     Dog.findById(id)
-    .then(dogs => {
+    .then(dog => {
       res.render('dog/edit', { 
-        dogs,
-        isEdit: true });
+        dog,
+        editAction: "/dogs/:id/edit" });
     })
     .catch(err => next(err));
 };
-
-// const data = {
-//     ...req.body,
-//     owner: req.user._id,
-//     image: req.file ? req.file.path : undefined,
-// }
-
-// Dog.create(data)
-// .then(dog => {
-//     res.redirect('/profile');
-//   })
-// .catch(err => {
-//   if (err instanceof mongoose.Error.ValidationError) {
-//     console.log(err)
-//     renderWithErrors(err.errors);
-//   } else {
-//     next(err);
-//   }
-// })
+module.exports.formPost = (req, res, next) => {
+    const { id } = req.params;
+    Dog.findByIdAndUpdate(id, req.body, { new: true })
+    .then(dog => {
+      res.redirect(``);
+    })
+    .catch(err => next(err))
+};
 
 
         

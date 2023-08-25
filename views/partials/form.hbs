@@ -1,0 +1,32 @@
+<form action={{targetAction}} method="POST" enctype="multipart/form-data">
+
+  <div class="input-group mb-3">
+    {{#if dog}}
+     <img src="{{dog.avatar}}" width="150" class="dog-profile-img" alt="{{dog.name}}">
+    {{/if}} 
+    <input type="file" name="avatar" 
+      class="custom-form-control form-control border-0 py-2 ps-4 {{#if errors.password}}is-invalid{{/if}}">
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Name</span>
+    <input type="text" class="form-control" {{#if dog}}placeholder={{dog.name}} {{else}}placeholder="Doggie's name"{{/if}} aria-label="Name" name="name" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Race</span>
+    <input type="text" class="form-control" placeholder="Doggie's race" aria-label="Race" name="race" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Age</span>
+    <input type="number" class="form-control" placeholder="Doggie's Age" aria-label="Age" name="age" aria-describedby="basic-addon1">
+  </div>
+
+  <div class="input-group">
+    <span name="specialTreatments" class="input-group-text" >Special Treatments</span>
+    <textarea class="form-control" aria-label="Special Treatments"></textarea>
+  </div>
+  <div class="flex">
+    <button class="btn btn-primary" type="submit">add dog</button>
+  </div>
+</form> 
