@@ -25,7 +25,7 @@ app.set('view engine', 'hbs');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(logger('dev'));
 
 app.use(session);

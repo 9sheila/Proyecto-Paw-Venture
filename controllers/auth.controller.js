@@ -67,7 +67,7 @@ const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
           console.log("entro y hago sesion",error)
           next(error);
         } else {
-          if (user.role === 'owner' && !user.dogs ) {
+          if (user.role === 'owner' && user.dogs ) {
             res.redirect('/dog/create')
           } else { 
           res.redirect('/profile')

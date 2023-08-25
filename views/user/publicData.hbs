@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <section>
+            <h2>{{user.name}}</h2>
+        </section>
+    </div>
+</div>
+<div class="container">
+    <div class="d-flex w-100 flex-row justify-content-center">
+        {{#each user.dogs}}
+        {{>dogCard dog=this}}
+        {{/each}}
+    </div>
+
+</div>

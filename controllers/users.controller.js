@@ -13,3 +13,14 @@ const createError = require('http-errors');
    })
   })
 }
+module.exports.userData =(req, res, next) => {
+  const { id } = req.params;
+  User.findById(id)
+  .then(user => {
+    res.render('user/publicData', {  
+      user
+   })
+  })
+  .catch(err => next(err));
+};
+

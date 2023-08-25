@@ -29,6 +29,7 @@ router.get('/authenticate/google/cb', authMiddleware.isUnauthenticated, authCont
 
 /* User */
 router.get('/profile', authMiddleware.isAuthenticated, usersController.profile);
+router.get('/userData/:id', authMiddleware.isAuthenticated, usersController.userData)
 
 /* Dog */
 router.get('/dogs/create', authMiddleware.isAuthenticated, dogController.create);
